@@ -1,3 +1,5 @@
+import java.util.Random;
+
 class Node {
 
 	Node next;
@@ -47,7 +49,6 @@ class LinkedList {
 			tail = null;
 		} else {
 			Node n = this.head;
-
 			while (n != null && n.next != null) {
 				if (n.next.data == d) {
 					if (n.next.next != null) { // deleting in middle of list
@@ -70,27 +71,50 @@ class LinkedList {
 		return size;
 	}
 
-	public static void main(String args[]) {
+	/* Generates a linked list with 
+		@length
+		@seed
+	*/
+	public static LinkedList generate(int length, int seed) {
+		Random rand = new Random(seed);
+
 		LinkedList Ll = new LinkedList();
+		for (int i = 0; i < length; i++)
+			Ll.add(rand.nextInt(50));
 
-		Ll.add(1);
-		Ll.add(2);
-		Ll.add(3);
+		return Ll;
+	}
 
-		Node n = Ll.head;
-		while (n != null) {
-			System.out.println(n);
-			n = n.next;
+	public static void main(String args[]) {
+		LinkedList genList = generate(5,5);
+		Node x = genList.head;
+
+		while (x != null) {
+			System.out.println(x);
+			x = x.next;
 		}
-		Ll.remove(3);
 
-		System.out.println("Linkedlist after removal");
+		//LinkedList Ll = new LinkedList();
+		//Ll.remove(2);
 
-		n = Ll.head;
-		while (n != null) {
-			System.out.println(n);
-			n = n.next;
-		}
+		//Ll.add(1);
+		//Ll.add(2);
+		//Ll.add(3);
+
+		//Node n = Ll.head;
+		//while (n != null) {
+		//	System.out.println(n);
+		//	n = n.next;
+		//}
+		//Ll.remove(3);
+
+		//System.out.println("Linkedlist after removal");
+
+		//n = Ll.head;
+		//while (n != null) {
+		//	System.out.println(n);
+		//	n = n.next;
+		//}
 	}
 
 }
