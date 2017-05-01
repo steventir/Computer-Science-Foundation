@@ -15,7 +15,7 @@ class Node {
 
 }
 
-class LinkedList {
+public class LinkedList {
 	Node head;
 	Node tail;
 	int size;
@@ -71,6 +71,21 @@ class LinkedList {
 		return size;
 	}
 
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+
+		Node n = this.head;
+		if (n != null) {
+			while(n != null) {
+				sb.append(n + " -> ");
+				n = n.next;
+			}	
+		}
+		sb.append("null");
+
+		return sb.toString();
+	}
+
 	/* Generates a linked list with 
 		@length
 		@seed
@@ -85,30 +100,28 @@ class LinkedList {
 		return Ll;
 	}
 
+
 	public static void main(String args[]) {
 		LinkedList genList = generate(5,5);
-		Node x = genList.head;
+		System.out.println(genList);
 
-		while (x != null) {
-			System.out.println(x);
-			x = x.next;
+		LinkedList Ll = new LinkedList();
+		Ll.remove(2);
+
+		Ll.add(1);
+		Ll.add(2);
+		Ll.add(3);
+
+		Node n = Ll.head;
+		while (n != null) {
+			System.out.println(n);
+			n = n.next;
 		}
+		Ll.remove(3);
 
-		//LinkedList Ll = new LinkedList();
-		//Ll.remove(2);
-
-		//Ll.add(1);
-		//Ll.add(2);
-		//Ll.add(3);
-
-		//Node n = Ll.head;
-		//while (n != null) {
-		//	System.out.println(n);
-		//	n = n.next;
-		//}
-		//Ll.remove(3);
-
-		//System.out.println("Linkedlist after removal");
+		System.out.println("Linkedlist after removal");
+		System.out.println(Ll);
+		System.out.println(Ll);
 
 		//n = Ll.head;
 		//while (n != null) {
