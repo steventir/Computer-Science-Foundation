@@ -95,12 +95,6 @@ public class Stack {
 		s.pop();
 		s.pop();
 		
-		s.pop();
-		s.pop();
-		s.pop();
-		s.pop();
-		s.pop();
-		s.pop();
 		System.out.println(s.peek());
 	}
 }
