@@ -1,3 +1,11 @@
+/**
+* The question that we wish to answer:
+*
+* Q: Design a stack where push(), pop() and min() operate in O(1) time.
+*
+*
+**/
+
 public class StackMin {
 
 	Stack data;
@@ -9,11 +17,11 @@ public class StackMin {
 	}
 
 	public void push(int d) {
-		if (!min.isEmpty()) {
-			if (min.peek() > d)
+		if (!min.isEmpty) {
+			if (min.peek() >= d)
 				min.push(d);
-		} else if(min.head == null)
-			min.push(d);
+		} else if (min.head == null)
+			min.push(d)
 		data.push(d);
 	}
 
@@ -28,9 +36,7 @@ public class StackMin {
 	}
 
 	public int min() {
-		if (!min.isEmpty())
-			return min.peek();
-		return -1;
+		return min.peek();
 	}
 
 	public int peek() {
@@ -48,29 +54,17 @@ public class StackMin {
 
 		sm.push(4);
 		sm.push(1);
-		sm.push(2);
-		sm.push(6);
+		sm.push(1);
 
 		System.out.println(sm.data);
 		System.out.println(sm.min);
 
+		System.out.println(sm.min());
 		sm.pop();
+		System.out.println(sm.min());
+
 		System.out.println(sm.data);
 		System.out.println(sm.min);
 
-		sm.pop();
-		System.out.println(sm.data);
-		System.out.println(sm.min);
-
-		sm.pop();
-		System.out.println(sm.data);
-		System.out.println(sm.min);
-		sm.pop();
-		System.out.println(sm.data);
-		System.out.println(sm.min);
-		sm.pop();
-		System.out.println(sm.data);
-		System.out.println(sm.min);
-		System.out.println(sm.isEmpty());
 	}
 }

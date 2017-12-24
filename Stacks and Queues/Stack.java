@@ -89,12 +89,19 @@ public class Stack {
 
 	public static void main(String args[]) {
 		System.out.println("Hello World.");
-		Stack s = generate(5,6);
+
+		int seed = 6;
+		int n  = 5;
+
+		Stack s = generate(n, seed);
+
+		System.out.println(s);
 
 		s.pop();
 		s.pop();
 		s.pop();
 		
+		System.out.println(s);
 		System.out.println(s.peek());
 	}
 }
