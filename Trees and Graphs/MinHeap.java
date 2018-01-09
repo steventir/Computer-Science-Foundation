@@ -52,9 +52,12 @@ public class MinHeap {
 	// Save the root in a variable
 	// Replace data of last node at root
 	// then bubble down
+	// Time Complexity: O(log n)
 	public int min() {
 
-		if (heap.size() > 2) {
+		if (heap.size() == 2) {
+			return heap.remove(heap.size()-1);
+		} else if (heap.size() > 2) {
 			//Save and Replace root
 			int minValue = heap.get(1);
 			heap.set(1, heap.remove(heap.size()-1));
@@ -64,18 +67,25 @@ public class MinHeap {
 			int idxLeftChild = 2*idxParent;
 			int idxRightChild = 2*idxParent + 1;
 
-			while (idxLeftChild < heap.size()-1 || idxRightChild < heap.size()-1) {
+			while (idxLeftChild < heap.size() || idxRightChild < heap.size()) {
 				int rightChild = Integer.MAX_VALUE;
 				int leftChild = Integer.MAX_VALUE;
 
-				if (idxRightChild < heap.size()-1)
+				if (idxRightChild < heap.size())
 					rightChild = heap.get(idxRightChild);
-				if (idxLeftChild < heap.size()-1)
+				if (idxLeftChild < heap.size())
 					leftChild = heap.get(idxLeftChild);
 				
-				if (leftChild == Integer.MAX_VALUE && rightChild == Integer.MAX_VALUE)
-					return minValue;
-				else if (leftChild <= rightChild) {
+				//System.out.println(heap.get(idxParent) + " L:" + leftChild + "("+idxLeftChild+")" + " R:" + rightChild + "("+idxRightChild+")");
+
+				if (leftChild == Integer.MAX_VALUE &&
+						rightChild == Integer.MAX_VALUE) // parent is leaf node
+					break;
+				if (heap.get(idxParent) <= leftChild && 
+						heap.get(idxParent) <= rightChild) // parent pos is satified 
+					break;
+
+				if (leftChild <= rightChild) {
 					//Swap
 					int tmp = heap.get(idxLeftChild);
 					heap.set(idxLeftChild, heap.get(idxParent));
@@ -96,10 +106,10 @@ public class MinHeap {
 				idxLeftChild = 2*idxParent;
 				idxRightChild = 2*idxParent + 1;
 			}
-
-		} 
-
-		return Integer.MIN_VALUE;
+			return minValue;
+		} else {
+			return Integer.MIN_VALUE;
+		}
 	}
 
 	public int size() {
@@ -129,7 +139,63 @@ public class MinHeap {
 		m.insert(53);
 
 		System.out.println(m);
-		m.min();
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+
+		m.insert(87);
+		m.insert(14);
+		m.insert(90);
+		m.insert(32);
+		m.insert(5);
+		m.insert(41);
+		m.insert(64);
+		m.insert(53);
+		m.insert(23);
+		m.insert(50);
+
+		System.out.println(m);
+
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
+		System.out.println(m);
+		System.out.println(m.min());
 		System.out.println(m);
 	}
 
